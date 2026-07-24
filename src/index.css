@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-valentime: #eae0d9;
+  --text-dark: #202020;
+  --accent-red: #da0000;
+  --accent-rose: #ffadad;
+  --accent-gold: #f4c890;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background-color: #eae0d9;
+  color: #202020;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar for Valentime */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #eae0d9;
+}
+::-webkit-scrollbar-thumb {
+  background: #c2aaa8;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #da0000;
+}
+
+/* Editorial Fonts */
+.font-serif-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-script-romantic {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Valentime Red Underline Hover Effect */
+.valentime-link {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #202020;
+  transition: color 0.3s ease;
+}
+
+.valentime-link .line-svg {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  overflow: hidden;
+  transition: width 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+  pointer-events: none;
+}
+
+.valentime-link:hover .line-svg {
+  width: 100%;
+}
+
+/* Rotating Sound Indicator Animation */
+@keyframes soundRotate {
+  0% { transform: rotate(-20deg); }
+  100% { transform: rotate(90deg); }
+}
+
+.animate-sound-rotate {
+  animation: soundRotate 1.2s ease-in-out infinite alternate;
+}
+
+/* Story Line Box with Red Diamond Accents */
+.story-border-box {
+  position: relative;
+  padding: 24px 32px;
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.story-border-line-top,
+.story-border-line-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #c2aaa8 20%, #c2aaa8 80%, transparent 100%);
+}
+
+.story-border-line-top { top: 0; }
+.story-border-line-bottom { bottom: 0; }
+
+.story-diamond-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border: 1px solid #c2aaa8;
+  background-color: #eae0d9;
+}
+
+.story-diamond-center-top { top: -4px; }
+.story-diamond-center-bottom { bottom: -4px; }
+
+.story-diamond-red-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #da0000;
+  margin: 1px auto;
+}
+
+/* Valentime Custom Button Styles */
+.btn-valentime-primary {
+  background-color: #0e101c;
+  color: #ebe0da;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 99px;
+  border: 1px solid rgba(244, 200, 144, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 20px rgba(218, 0, 0, 0.2);
+  transition: all 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.btn-valentime-primary:hover {
+  background-color: #da0000;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(218, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-valentime-secondary {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.3) 100%);
+  color: #202020;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 99px;
+  border: 1px solid rgba(194, 170, 168, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-valentime-secondary:hover,
+.btn-valentime-secondary.active {
+  background: #f4c890;
+  color: #202020;
+  border-color: #f4c890;
+  box-shadow: 0 0 15px rgba(244, 200, 144, 0.5);
+}
+
+/* Floating Particle Animations */
+@keyframes floatUpSlow {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+.floating-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: floatUpSlow 14s linear infinite;
+}
+
+/* Organic Floating Heart Sway Animation for Tắt Đèn Mode */
+@keyframes floatHeartSway {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.7) rotate(-15deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(35px) scale(1.1) rotate(15deg);
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(-35px) scale(0.8) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart-sway {
+  animation: floatHeartSway linear infinite;
+}
+
+/* ==========================================
+   TẮT ĐÈN (NIGHT MODE) STYLING & RED TEXT GLOW
+   ========================================== */
+
+.lights-off {
+  color: #ff4d6d !important;
+}
+
+.lights-off h1,
+.lights-off h2,
+.lights-off h3 {
+  color: #ff4d6d !important;
+  text-shadow: 0 0 16px rgba(255, 77, 109, 0.6), 0 0 30px rgba(218, 0, 0, 0.4);
+}
+
+.lights-off p,
+.lights-off blockquote {
+  color: #ff85a1 !important;
+  text-shadow: 0 0 10px rgba(255, 133, 161, 0.4);
+}
+
+.lights-off .valentime-link {
+  color: #ff758f !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 10px rgba(255, 117, 143, 0.6);
+}
+
+.lights-off .story-border-box {
+  background-color: rgba(22, 13, 26, 0.88) !important;
+  border-color: rgba(255, 77, 109, 0.5) !important;
+  box-shadow: 0 0 45px rgba(255, 77, 109, 0.35), inset 0 0 20px rgba(255, 77, 109, 0.15) !important;
+}
+
+.lights-off .story-border-line-top,
+.lights-off .story-border-line-bottom {
+  background: linear-gradient(90deg, transparent 0%, #ff4d6d 30%, #ff4d6d 70%, transparent 100%) !important;
+}
+
+.lights-off .story-diamond-center {
+  border-color: #ff4d6d !important;
+  background-color: #090a15 !important;
+}
+
+
